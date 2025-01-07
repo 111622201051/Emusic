@@ -1,0 +1,93 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('https://img.freepik.com/premium-photo/concept-music-festivals-radio-stations-music-lovers-live-with-music-music-heart-notes-song-melody-apps-websites-treble-clef-headphones-homestudio-audio-recording_771426-4094.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #fff;
+}
+
+.shadow-wrap {
+    background-color: rgba(0, 0, 0, 0.0); /* Dark background for better contrast */
+    padding: 5px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    width: 250%;
+    max-width: 350px;
+    text-align: cente;
+}
+
+.page-header {
+    color: #FF5C8D;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 2px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #FF5C8D;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 92, 141, 0.5);
+}
+
+.form-wrap button {
+    width: 100%;
+    padding: 12px;
+    background-color: #10182F;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-wrap button:hover {
+    background-color: #10182F;
+}
+
+.sublinks {
+    text-align: center;
+    margin-top: 20px;
+    color: #ddd;
+}
+
+.sublinks a {
+    color: #31a80d;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sublinks a:hover {
+    color: #ec0a0a;
+}
+
+@media (max-width: 576px) {
+    .shadow-wrap {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    .page-header {
+        font-size: 1.5rem;
+    }
+}

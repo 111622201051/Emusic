@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login to e-Music</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        .shadow-wrap {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+        }
+
+        .shadow-wrap h3 {
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .form-label {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-label label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+            color: #ddd;
+        }
+
+        .form-label input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .form-label input:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        .form-wrap {
+            margin-top: 20px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #2575fc, #6a11cb);
+            color: #fff;
+            font-size: 1em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            transform: scale(1.05);
+        }
+
+        .sublinks {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #ddd;
+        }
+
+        .sublinks a {
+            color: #ffb400;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .sublinks a:hover {
+            color: #ff6a00;
+        }
+
+        .messages {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .messages li {
+            background: #ff7675;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        @media (max-width: 576px) {
+            .shadow-wrap {
+                padding: 20px;
+            }
+
+            .shadow-wrap h3 {
+                font-size: 1.5em;
+            }
+
+            .btn {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <div class="shadow-wrap">
+        <h3>Welcome Back to e-Music</h3>
+        <form action="/login/" method="POST">
+            {% csrf_token %}
+            <div class="form-label">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your Username" required>
+            </div>
+            <div class="form-label">
+                <label for="pass1">Password</label>
+                <input type="password" id="pass1" name="pass1" placeholder="Enter your Password" required>
+            </div>
+            <div class="form-wrap">
+                <button type="submit" class="btn">Log In</button>
+            </div>
+            <div class="sublinks">
+                <p>Don't have an account? <a href="{% url 'signup' %}">Sign Up</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

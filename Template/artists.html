@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artists - eMusic</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ffe0f0, #e0f7fa);
+            color: #333;
+        }
+
+        header {
+            background-color: #8e44ad;
+            color: white;
+            padding: 20px 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        /* Back Button Styling */
+        .back-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 1em;
+            padding: 5px 10px;
+            border: 1px solid white;
+            border-radius: 5px;
+            background-color: #8e44ad;
+        }
+
+        .back-button:hover {
+            background-color: #9b59b6;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        main p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .artist-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .artist-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .artist-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .artist-card h2 {
+            font-size: 1.2em;
+            color: #8e44ad;
+            margin: 10px 0;
+        }
+
+        .artist-card p {
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        footer {
+            background-color: #8e44ad;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="javascript:history.back()" class="back-button">Back</a>
+        <h1>Artists</h1>
+    </header>
+    <main>
+        <p>Dive into the discography of your favorite artists.</p>
+        <div class="artist-list">
+            <a href="https://open.spotify.com/artist/0oOet2f43PA68X5RxKobEy?si=DD6QYLYwSeiHkOj65Lg5nQ" target="_blank" class="artist-card">
+                <h2>Shreya Ghoshal</h2>
+                <p>Discover their top hits and albums.</p>
+            </a>
+            <a href="https://open.spotify.com/artist/1mYsTxnqsietFxj1OgoGbG?si=amlY1miGRz6xS3PFnY1aBQ" target="_blank" class="artist-card">
+                <h2>A.R.Rahman</h2>
+                <p>Explore their musical journey and collaborations.</p>
+            </a>
+            <a href="https://open.spotify.com/artist/7vk5e3vY1uw9plTHJAMwjN?si=RzH8uXvZT4C5uYPIx4l83Q" target="_blank" class="artist-card">
+                <h2>Alan Walker</h2>
+                <p>Relive the magic of their timeless classics.</p>
+            </a>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 eMusic. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genres - eMusic</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            color: #333;
+        }
+
+        header {
+            background-color: #34495e;
+            color: white;
+            padding: 20px 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: white;
+            color: #34495e;
+            border: 2px solid #34495e;
+            padding: 10px 15px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #34495e;
+            color: white;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        main p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .genre-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .genre-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            width: 150px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .genre-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .genre-card h2 {
+            font-size: 1.2em;
+            color: #34495e;
+            margin: 10px 0;
+        }
+
+        footer {
+            background-color: #34495e;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Genres</h1>
+        <a href="javascript:history.back()" class="back-button">⬅ Back</a>
+    </header>
+    <main>
+        <p>Explore music by your favorite genres.</p>
+        <div class="genre-list">
+            <a href="https://open.spotify.com/album/43Fh1hMumKDCcax2JOWEmR?si=aAyNG4-LSOSxpxTlYMSquA" target="_blank" class="genre-card">
+                <h2>Rock</h2>
+                <p>Feel the energy of timeless rock anthems.</p>
+            </a>
+            <a href="https://open.spotify.com/playlist/0mRbIMl8SW5OKVlxQujdm8?si=784b1046472740fa" target="_blank" class="genre-card">
+                <h2>Pop</h2>
+                <p>Stay trendy with the latest chart-toppers.</p>
+            </a>
+            <a href="https://open.spotify.com/playlist/37i9dQZF1DWV7EzJMK2FUI?si=fd790bbd17d34c49" target="_blank" class="genre-card">
+                <h2>Jazz</h2>
+                <p>Immerse yourself in smooth and soulful tunes.</p>
+            </a>
+            <a href="https://open.spotify.com/playlist/37i9dQZF1DWWEJlAGA9gs0?si=d985482b5e6748df" target="_blank" class="genre-card">
+                <h2>Classical</h2>
+                <p>Relax with the masterpieces of great composers.</p>
+            </a>
+            <a href="https://open.spotify.com/playlist/37i9dQZF1DX186v583rmzp?si=849bb11b421546d0" target="_blank" class="genre-card">
+                <h2>Hip-Hop</h2>
+                <p>Get into the rhythm of urban beats and rhymes.</p>
+            </a>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 eMusic. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

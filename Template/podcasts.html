@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcasts - eMusic</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ffe0b2, #ffccbc);
+            color: #333;
+        }
+
+        header {
+            background-color: #ff5722;
+            color: white;
+            padding: 20px 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: white;
+            color: #ff5722;
+            border: 2px solid #ff5722;
+            padding: 10px 15px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #ff5722;
+            color: white;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        main p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .podcast-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .podcast-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .podcast-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .podcast-card h2 {
+            font-size: 1.2em;
+            color: #ff5722;
+            margin: 10px 0;
+        }
+
+        .podcast-card p {
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        footer {
+            background-color: #ff5722;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Podcasts</h1>
+        <a href="javascript:history.back()" class="back-button">⬅ Back</a>
+    </header>
+    <main>
+        <p>Stay informed and entertained with our curated list of top-rated podcasts.</p>
+        <div class="podcast-list">
+            <a href="https://open.spotify.com/show/0sxPi96iB6st3vKilmXlUC?si=d1d291f86d184f68" target="_blank" class="podcast-card">
+                <h2>Daily News</h2>
+                <p>Catch up on the latest headlines in just 10 minutes.</p>
+            </a>
+            <a href="https://open.spotify.com/show/12jUp5Aa63c5BYx3wVZeMA?si=0ff020d7a25d4676" target="_blank" class="podcast-card">
+                <h2>Tech Trends</h2>
+                <p>Explore the world of technology and innovation.</p>
+            </a>
+            <a href="https://open.spotify.com/playlist/5uCDuvkZqjMPUR7j6TniRW?si=55faa654a8ff4635" target="_blank" class="podcast-card">
+                <h2>Wellness Talks</h2>
+                <p>Tips and insights to improve your mental and physical health.</p>
+            </a>
+            <a href="https://open.spotify.com/show/0UPes6otTfxvCE11FkEkOj?si=0fa8c4022cb449bf" target="_blank" class="podcast-card">
+                <h2>Comedy Hour</h2>
+                <p>Laugh out loud with the best stand-up and comedy skits.</p>
+            </a>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 eMusic. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

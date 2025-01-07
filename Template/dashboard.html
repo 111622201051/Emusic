@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - eMusic</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #f0f8ff, #e6e6fa);
+            color: #333;
+        }
+
+        header {
+            background: #4a90e2;
+            color: white;
+            padding: 20px 10px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            background-color: #0073e6;
+            transition: background 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #005bb5;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section h2 {
+            font-size: 2em;
+            color: #4a90e2;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        section p {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        ul li {
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px 20px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        ul li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        ul li strong {
+            display: block;
+            margin-bottom: 10px;
+            color: #4a90e2;
+        }
+
+        button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005bb5;
+        }
+
+        #status {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .search-bar input[type="text"] {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 300px;
+            margin-right: 10px;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-bar button:hover {
+            background-color: #005bb5;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            background-color: #005bb5;
+        }
+
+        .speak-now-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function startRecognition() {
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = 'en-us';
+            recognition.interimResults = false;
+
+            recognition.onstart = () => {
+                document.getElementById("status").innerText = "Listening...";
+            };
+
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                document.getElementById("status").innerText = "Processing...";
+                sendVoiceToServer(transcript);
+            };
+
+            recognition.onerror = (event) => {
+                document.getElementById("status").innerText = "Error: " + event.error;
+            };
+
+            recognition.start();
+        }
+
+        function sendVoiceToServer(voiceText) {
+            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+            fetch("/process_voice/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "X-CSRFToken": csrfToken,
+                },
+                body: new URLSearchParams({ voice_text: voiceText }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.url) {
+                        window.open(data.url, "_blank");
+                    } else {
+                        document.getElementById("status").innerText = data.message;
+                    }
+                })
+                .catch(error => {
+                    document.getElementById("status").innerText = "Error: " + error;
+                });
+        }
+
+        function searchSpotify(event) {
+            event.preventDefault();
+            const query = document.getElementById("searchQuery").value;
+            const spotifySearchUrl = `https://open.spotify.com/search/${encodeURIComponent(query)}`;
+            window.open(spotifySearchUrl, "_blank");
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Welcome to eMusic</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'categories' %}">Categories</a></li>
+                <li><a href="{% url 'subscriptions' %}">Subscriptions</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                <li><a href="{% url 'spotify_callback' %}">Spotify</a></li>
+                {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'signout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Explore Our Categories</h2>
+            <p>Discover a world of music, podcasts, and more. Browse through our curated categories to find your favorites:</p>
+
+            <div class="search-bar">
+                <form id="spotifySearchForm" onsubmit="searchSpotify(event)">
+                    <input type="text" id="searchQuery" placeholder="Search for a song..." required>
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+
+            <ul>
+                <li>
+                    <a href="{% url 'songs' %}">
+                        <strong>Music</strong>
+                        Enjoy a diverse selection of songs across all genres.
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'podcasts' %}">
+                        <strong>Podcasts</strong>
+                        Stay informed and entertained with top-rated podcasts.
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'genres' %}">
+                        <strong>Genres</strong>
+                        Explore music by your favorite genres.
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'artists' %}">
+                        <strong>Artists</strong>
+                        Dive into the discography of your favorite artists.
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'playlists' %}">
+                        <strong>Playlists</strong>
+                        Find playlists tailored to your mood and preferences.
+                    </a>
+                </li>
+            </ul>
+
+            <div class="speak-now-container">
+                <button onclick="startRecognition()">🎤 Speak Now</button>
+            </div>
+            <p id="status">Click the button to start voice search.</p>
+        </section>
+    </main>
+
+    <button class="back-button" onclick="goBack()">⬅️ Back</button>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+    </form>
+</body>
+</html>

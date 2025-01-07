@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlists - eMusic</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #e3f2fd, #f3e5f5);
+            color: #333;
+        }
+
+        header {
+            background-color: #6200ea;
+            color: white;
+            padding: 20px 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        /* Back Button Styling */
+        .back-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 1em;
+            padding: 5px 10px;
+            border: 1px solid white;
+            border-radius: 5px;
+            background-color: #6200ea;
+        }
+
+        .back-button:hover {
+            background-color: #7e3fdb;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        main p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        ul li {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px 20px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        ul li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+            background-color: #f1f1f1;
+        }
+
+        ul li a {
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #6200ea;
+        }
+
+        ul li a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #6200ea;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="javascript:history.back()" class="back-button">Back</a>
+        <h1>Playlists</h1>
+    </header>
+    <main>
+        <p>Find playlists tailored to your mood and preferences.</p>
+        <ul>
+            <li><a href="https://open.spotify.com/album/2dOkNyoQd4IGUmWfDUuBNW?si=iM4YLpS2SQ-iV0D0lhgg8g" target="_blank">Morning Vibes</a></li>
+            <li><a href="https://open.spotify.com/playlist/2SM6rniZl84fEyMCB5KMQB?si=8cf3d830f736495f" target="_blank">Workout Beats</a></li>
+            <li><a href="https://open.spotify.com/playlist/6FBQqamxuD37ctc7sL5QkD?si=84165eb56d6e41b0" target="_blank">Relaxing Tunes</a></li>
+            <li><a href="https://open.spotify.com/playlist/37i9dQZF1DWTABUarzWcyu?si=bc50a5e4f00d4074" target="_blank">Party Mix</a></li>
+        </ul>
+    </main>
+    <footer>
+        <p>&copy; 2025 eMusic. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

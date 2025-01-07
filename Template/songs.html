@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Songs - eMusic</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #d9a7c7, #fffcdc);
+            color: #333;
+        }
+
+        header {
+            background-color: #6c63ff;
+            color: white;
+            padding: 20px 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ffffff;
+            color: #6c63ff;
+            border: 2px solid #6c63ff;
+            padding: 10px 15px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #6c63ff;
+            color: #ffffff;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        main p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .song-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .song-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .song-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .song-card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .song-card h2 {
+            font-size: 1.2em;
+            margin: 10px 0;
+            color: #6c63ff;
+        }
+
+        footer {
+            background-color: #6c63ff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Songs</h1>
+        <a href="javascript:history.back()" class="back-button">⬅ Back</a>
+    </header>
+    <main>
+        <p>Explore a diverse selection of songs across all genres.</p>
+        <ul class="song-list">
+            <li class="song-card">
+                <a href="https://open.spotify.com/playlist/2aL3Ul0dWCUX93WSPmkLlw?si=3J3OyKTfTZu3oVluntIIWg" target="_blank">
+                    <h2>Song 1</h2>
+                    <p>ANIRUTH</p>
+                </a>
+            </li>
+            <li class="song-card">
+                <a href="https://open.spotify.com/artist/1mYsTxnqsietFxj1OgoGbG?si=m7h08cWURI2hLpsKtw_aaw" target="_blank">
+                    <h2>Song 2</h2>
+                    <p>AR RAHMAN</p>
+                </a>
+            </li>
+            <li class="song-card">
+                <a href="https://open.spotify.com/playlist/37i9dQZF1E35azh0sGWJYr?si=cf797c0826c24a29" target="_blank">
+                    <h2>Song 3</h2>
+                    <p>GV PRAKASH</p>
+                </a>
+            </li>
+            <li class="song-card">
+                <a href="https://open.spotify.com/playlist/4xHneIit9XOLBxOvKNBev3?si=03359aef31d94bc8" target="_blank">
+                    <h2>Song 4</h2>
+                    <p>HARRIS JAYARAJ</p>
+                </a>
+            </li>
+        </ul>
+    </main>
+    <footer>
+        <p>&copy; 2025 eMusic. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
